@@ -132,7 +132,6 @@ La app estará disponible en http://localhost:5173.
 - Visualizar total de la orden en tiempo real
 - Dashboard con todas las órdenes
 - Mensajes tipo toast para errores y confirmaciones
-- Diseño responsivo con TailwindCSS
 
 ## 📄 Documentación
 - Swagger disponible en el backend: `/api` (si habilitado)
@@ -142,7 +141,7 @@ La app estará disponible en http://localhost:5173.
 - En desarrollo, CORS permite `localhost:5173`.
 - En producción, CORS debe permitir tu dominio de Vercel (`https://oceansstack.vercel.app`).
 - Backend y base de datos desplegados en Render, frontend en Vercel.
-- TypeScript usado en todo el backend para mayor mantenibilidad.
+- TypeScript usado en todo el todo el stack para mayor mantenibilidad.
 
 ## 👤 Autor
 Jonhatan Corona
