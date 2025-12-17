@@ -76,3 +76,75 @@ Levanta el frontend en desarrollo:
 npm run dev
 ```
 La app estará disponible en http://localhost:5173.
+
+## 🚀 Despliegue
+
+### Backend
+- Deploy en Render
+- Configura las variables de entorno y la URL de la base de datos (`DATABASE_URL`)
+- Habilita CORS para tu frontend desplegado
+
+### Frontend
+- Deploy en Vercel
+- Configura la variable de entorno `VITE_API_URL` apuntando a tu backend en producción
+
+---
+
+## 🔧 API Endpoints
+
+### Productos
+
+| Método | Ruta       | Descripción                |
+|--------|-----------|----------------------------|
+| GET    | /products | Obtener todos los productos|
+| POST   | /products | Crear un nuevo producto    |
+
+**Ejemplo POST body:**
+
+```json
+{
+  "name": "Hamburguesa",
+  "price": 12.99
+}
+```
+
+### Ordenes
+
+| Método | Ruta       | Descripción                |
+|--------|-----------|----------------------------|
+| GET    | /orders | Obtener todos las ordenes   |
+| POST   | /orders | Crear una nueva orden      |
+
+**Ejemplo POST body:**
+
+```json
+{
+  "products": [
+    { "id": 3 },
+    { "id": 5 }
+  ]
+}
+```
+
+## 🎨 Funcionalidades
+- Crear productos con validación
+- Crear órdenes seleccionando productos
+- Visualizar total de la orden en tiempo real
+- Dashboard con todas las órdenes
+- Mensajes tipo toast para errores y confirmaciones
+- Diseño responsivo con TailwindCSS
+
+## 📄 Documentación
+- Swagger disponible en el backend: `/api` (si habilitado)
+- Postman collection puede ser exportada para pruebas
+
+## 📌 Notas
+- En desarrollo, CORS permite `localhost:5173`.
+- En producción, CORS debe permitir tu dominio de Vercel (`https://oceansstack.vercel.app`).
+- Backend y base de datos desplegados en Render, frontend en Vercel.
+- TypeScript usado en todo el backend para mayor mantenibilidad.
+
+## 👤 Autor
+Jonhatan Corona
+
+
