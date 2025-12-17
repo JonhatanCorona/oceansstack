@@ -15,21 +15,26 @@ export default function ProductsAndOrdersPage() {
   const [selectedProductId, setSelectedProductId] = useState<string>("");
   const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
 
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        const prods = await fetchProducts();
-        setProducts(prods);
-        const ords = await fetchOrders();
-        setOrders(ords);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadData();
-  }, []);
+ useEffect(() => {
+  const loadData = async () => {
+    try {
+      // Simula retardo
+      await new Promise(r => setTimeout(r, 2000));
+
+      const prods = await fetchProducts();
+      setProducts(prods);
+
+      const ords = await fetchOrders();
+      setOrders(ords);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+  loadData();
+}, []);
+
 
   const handleSelectProduct = () => {
     if (!selectedProductId) return;
@@ -71,7 +76,15 @@ export default function ProductsAndOrdersPage() {
     setTimeout(() => setToast(null), 3000);
   };
 
-  if (loading) return <p className="text-white text-center mt-20">Cargando...</p>;
+if (loading) {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-tr from-gray-900 via-gray-800 to-gray-700 text-white">
+      <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-white mb-4"></div>
+      <p className="text-xl font-semibold">Cargando...</p>
+    </div>
+  );
+}
+
 
   return (
     <div className="min-h-screen bg-gradient-to-tr from-gray-900 via-gray-800 to-gray-700 text-white px-6 py-12 relative">
